@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('upload.patient');
+Route::post('files/upload/patient', [DashboardController::class, 'uploadPatient'])->name('upload.patient');
+Route::post('files/upload/appointment', [DashboardController::class, 'uploadAppointment'])->name('upload.appointment');
